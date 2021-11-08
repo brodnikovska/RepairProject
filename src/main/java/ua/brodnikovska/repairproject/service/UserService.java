@@ -28,7 +28,7 @@ public class UserService {
     @Transactional
     public void saveNewUser(User user) {
         try {
-            user.setRole(RoleType.ROLE_USER);
+            user.setRole(RoleType.USER);
             user.setBalance(BigDecimal.ZERO);
             userRepository.save(user);
         } catch (Exception ex){

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>New user</title>
+</head>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default" style="margin-top:45px">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Register new user</h3>
+                </div>
+                <div class="panel-body">
+                    <form th:method="POST" th:action="@{/registration}" th:object="${user}" style="margin-top: 30px">
+
+
+                        <div class="mb-3">
+                            <label for="username" class="form-label">Username: </label>
+                            <input type="text" class="form-control" th:field="*{username}" id="username"/>
+                            <div style="color:red" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</div>
+                            <br/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email: </label>
+                            <input type="text" class="form-control" th:field="*{email}" id="email"/>
+                            <div style="color:red" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Error</div>
+                            <br/>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password: </label>
+                            <input type="text" class="form-control" th:field="*{password}" id="password"/>
+                            <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+                            <br/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:security="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
@@ -7,7 +7,7 @@
 <body>
 <h1>Login</h1>
 
-<form name='f' action="perform_login" method='POST'>
+<form name='f' th:action="perform_login" th:method='POST'>
 
     <table>
         <tr>

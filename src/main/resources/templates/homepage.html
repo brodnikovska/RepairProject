@@ -1,24 +1,24 @@
-<html xmlns:security="http://www.springframework.org/schema/security" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:security="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" xmlns:th="http://www.thymeleaf.org">
 <head></head>
 
 <body>
 <h1>This is the body of the sample view</h1>
 
-<security:authorize access="hasRole('USER')">
+<security:authorize access="hasAuthority('USER')">
     This text is only visible to a user
     <br/> <br/>
     <a th:href="@{/user/userpage}">Restricted Admin Page</a>
     <br/> <br/>
 </security:authorize>
 
-<security:authorize access="hasRole('ADMIN')">
+<security:authorize access="hasAuthority('ADMIN')">
     This text is only visible to an admin
     <br/>
     <a th:href="@{/admin/adminpage}">Admin Page</a>
     <br/>
 </security:authorize>
 
-<!--<a href="<c:url value="/perform_logout" />">Logout</a>-->
+<a th:href="@{/perform_logout}">Logout</a>
 
 </body>
 </html>

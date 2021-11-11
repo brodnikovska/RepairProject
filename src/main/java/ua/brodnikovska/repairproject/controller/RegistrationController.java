@@ -27,16 +27,16 @@ public class RegistrationController {
     @GetMapping()
     public String newUser(Model model) {
         model.addAttribute("user", new User());
-        return "users/new";
+        return "user/new";
     }
 
     @PostMapping()
     public String create(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "users/new";
+            return "user/new";
         } else {
             userService.saveNewUser(user);
-            return "users/balance";
+            return "redirect:/homepage";
         }
     }
 }

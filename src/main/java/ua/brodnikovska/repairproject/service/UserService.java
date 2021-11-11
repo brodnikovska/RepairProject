@@ -10,6 +10,7 @@ import ua.brodnikovska.repairproject.repository.UserRepository;
 import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -34,6 +35,11 @@ public class UserService {
         } catch (Exception ex){
             log.info("{Почтовый адрес уже существует}");
         }
+    }
+
+    public Optional<User> findUserById(Long id) {
+        //TODO check for user availability. password check
+        return userRepository.findById(id);
     }
 
 

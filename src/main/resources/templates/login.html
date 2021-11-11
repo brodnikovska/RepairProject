@@ -5,7 +5,7 @@
     <title>Login</title>
 </head>
 <body>
-<h1>Login</h1>
+<h1>Login or register</h1>
 
 <form name='f' th:action="perform_login" th:method='POST'>
 
@@ -24,6 +24,8 @@
     </table>
 
 </form>
+
+<p>Go to</p> <a th:href="@{/registration}">registration form</a>
 
 </body>
 </html>
